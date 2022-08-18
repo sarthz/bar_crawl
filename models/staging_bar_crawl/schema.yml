@@ -1,0 +1,49 @@
+version: 2
+
+sources:
+    - name: staging
+      database: wise-logic-354820
+      schema: bar_crawl_data
+
+      tables:
+        - name: nyc_bar_crawl_data2
+
+models:
+    - name: stg_nyc_bar_crawl
+      description: >
+        Trip made by green taxis, also known as boro taxis and street-hail liveries.
+        Green taxis may respond to street hails,but only in the areas indicated in green on the
+        map (i.e. above W 110 St/E 96th St in Manhattan and in the boroughs).
+        The records were collected and provided to the NYC Taxi and Limousine Commission (TLC) by
+        technology service providers. 
+      columns:
+          - name: bar_id
+            description: Primary key for this table, the camis id
+            tests:
+                - unique:
+                    severity: warn
+                - not_null:
+                    severity: warn
+          - name: bar_pub_name
+            description: Name of the establishment
+          - name: borough 
+            description: The borough in New York City
+          - name: building 
+            description: The name of the building the establishment is located in
+          - name: address 
+            description: The address of the bar/pub
+          - name: zip 
+            description: The zip code of the bar/pub
+          - name: phone 
+            description: The phone number of the bar/pub
+          - name: latitude 
+            description: The geographical latitude from the address of the bar/pub
+          - name: longitute 
+            description: The geographical longitude from the address of the bar/pub
+          - name: score 
+            description: The score received during the inspection of the bar/pub
+          - name: grade 
+            description: The grade received during the inspection of the bar/pub
+          - name: grade_dt 
+            description: The date on which the bar/pub was graded in an inspection
+

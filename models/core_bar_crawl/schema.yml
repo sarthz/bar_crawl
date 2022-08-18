@@ -1,0 +1,6 @@
+version: 2
+
+models:
+  - name: nyc_bar_crawl
+    description: >
+      Table version of the staging nyc bar crawl data
